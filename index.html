@@ -3,9 +3,114 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Weather App</title>
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="src/style.css" />
-    <script src="src/script.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/fb2a443c9a.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
-  <body></body>
+
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="city-date-time col">
+          <h1 id="city">Santiago</h1>
+
+          <h2 id="date"></h2>
+          <h3 class="inline-block" id="current-time"></h3>
+          <h3 class="inline-block" id="am-pm"></h3>
+        </div>
+
+        <div class="change-city col">
+          <form id="city-form">
+            <input
+              type="text"
+              id="city-input"
+              placeholder="Search for a city..."
+              autofocus="on"
+            />
+            <button
+              type="submit"
+              class="btn btn-primary"
+              id="search-city-button"
+            >
+              <i class="fas fa-search"></i>
+            </button>
+            <button
+              type="submit"
+              class="btn btn-primary"
+              id="current-location-button"
+            >
+              <i class="fas fa-map-marker-alt"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="middle">
+        <div class="center-circle">
+          <h4 class="info">
+            <i class="fas fa-cloud info"></i> <br />
+            <span id="temp"></span>
+            <br />
+            <span id="celcius">°C</span>|<span id="farenheit">°F</span>
+          </h4>
+          <h5 class="info" id="conditions">partly cloudy</h5>
+        </div>
+
+        <div class="center-list">
+          <ul>
+            <li>humidity <span class="weather-value" id="humidity"></span></li>
+            <li>
+              wind
+              <span class="weather-value" id="wind-speed">4mph</span>
+            </li>
+            <li>
+              feels like <span class="weather-value" id="feels-like"></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="forecast">
+        <div class="row">
+          <div class="col">
+            <i class="fas fa-cloud"></i> <br />
+            Friday
+          </div>
+          <div class="col">
+            <i class="fas fa-cloud-sun"></i> <br />
+            Saturday
+          </div>
+          <div class="col">
+            <i class="fas fa-cloud-sun"></i> <br />
+            Sunday
+          </div>
+          <div class="col">
+            <i class="fas fa-cloud"></i> <br />
+            Monday
+          </div>
+          <div class="col">
+            <i class="fas fa-cloud-showers-heavy"></i> <br />
+            Tuesday
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="src/script.js"></script>
+  </body>
 </html>

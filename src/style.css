@@ -1,0 +1,144 @@
+.container {
+  background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
+  border: 5px solid #e8e3e3;
+  width: 600px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 50px;
+  font-family: "Anonymous Pro", monospace;
+  border-radius: 10px;
+}
+
+.city-date-time {
+  margin-top: 20px;
+
+  color: #ad9d9d;
+}
+h1,
+h2,
+h3 {
+  line-height: 30px;
+  margin-left: 10px;
+}
+
+h2 {
+  font-size: 22px;
+}
+
+#am-pm {
+  margin-left: 0px;
+}
+.change-city {
+  display: block;
+  text-align: right;
+  margin-top: 20px;
+}
+
+input {
+  background-color: transparent;
+  border: 1px solid #8b7474;
+  border-radius: 4px;
+  padding: 3px 6px;
+  color: #8b7474;
+  font-size: 15px;
+  font-family: "Anonymous Pro", monospace;
+}
+
+.fa-search {
+  font-size: 12px;
+}
+
+.fa-map-marker-alt {
+  font-size: 12px;
+}
+
+.btn-primary {
+  position: relative;
+  bottom: 1px;
+  padding: 2px 8px;
+  background-color: #ad9d9d;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #8b7474;
+}
+
+.middle {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.center-circle {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 20px;
+  text-align: center;
+  font-size: 18px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: rgba(255, 255, 255, 0.8);
+  color: #ad9d9d;
+}
+
+.middle .fa-cloud {
+  margin-top: 17px;
+  font-size: 48px;
+  margin-bottom: 6px;
+  color: #e8e3e3;
+}
+
+#temp {
+  font-weight: bold;
+  font-size: 40px;
+}
+
+#celcius {
+  font-weight: bold;
+}
+
+#celcius:hover,
+#farenheit:hover {
+  cursor: pointer;
+}
+
+.info {
+  font-size: 18px;
+  margin-bottom: 0;
+}
+
+#conditions {
+  font-size: 17px;
+}
+ul {
+  display: block;
+  border-radius: 10px;
+  width: 200px;
+  list-style-type: none;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 30px;
+  margin-top: 30px;
+  color: #ad9d9d;
+  line-height: 48px;
+}
+
+.weather-value {
+  font-weight: bold;
+}
+
+.forecast {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  text-align: center;
+  color: #e8e3e3;
+}
+
+.inline-block {
+  display: inline-block;
+}
