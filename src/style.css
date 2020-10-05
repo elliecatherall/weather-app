@@ -1,7 +1,7 @@
 .container {
   background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
   border: 5px solid #e8e3e3;
-  width: 600px;
+  max-width: 600px;
   display: block;
   margin: 0 auto;
   margin-top: 50px;
@@ -11,8 +11,11 @@
 
 .city-date-time {
   margin-top: 20px;
-
   color: #ad9d9d;
+}
+
+h1 {
+  text-transform: capitalize;
 }
 h1,
 h2,
@@ -86,7 +89,7 @@ input {
   color: #ad9d9d;
 }
 
-.middle .fa-cloud {
+#icon {
   margin-top: 17px;
   font-size: 48px;
   margin-bottom: 6px;

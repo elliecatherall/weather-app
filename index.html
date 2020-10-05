@@ -27,7 +27,7 @@
     <div class="container">
       <div class="row">
         <div class="city-date-time col">
-          <h1 id="city">Santiago</h1>
+          <h1 id="city">New York</h1>
 
           <h2 id="date"></h2>
           <h3 class="inline-block" id="current-time"></h3>
@@ -37,10 +37,11 @@
         <div class="change-city col">
           <form id="city-form">
             <input
-              type="text"
+              type="search"
               id="city-input"
               placeholder="Search for a city..."
               autofocus="on"
+              autocomplete="off"
             />
             <button
               type="submit"
@@ -63,12 +64,12 @@
       <div class="middle">
         <div class="center-circle">
           <h4 class="info">
-            <i class="fas fa-cloud info"></i> <br />
+            <i class="fas info" id="icon"></i> <br />
             <span id="temp"></span>
             <br />
             <span id="celcius">°C</span>|<span id="farenheit">°F</span>
           </h4>
-          <h5 class="info" id="conditions">partly cloudy</h5>
+          <h5 class="info" id="conditions"></h5>
         </div>
 
         <div class="center-list">
@@ -76,7 +77,7 @@
             <li>humidity <span class="weather-value" id="humidity"></span></li>
             <li>
               wind
-              <span class="weather-value" id="wind-speed">4mph</span>
+              <span class="weather-value" id="wind-speed"></span>
             </li>
             <li>
               feels like <span class="weather-value" id="feels-like"></span>
