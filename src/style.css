@@ -89,6 +89,15 @@ input {
   color: #ad9d9d;
 }
 
+.center-circle .active {
+  font-weight: bold;
+  cursor: default;
+}
+
+.center-circle .active:hover {
+  text-decoration: none;
+}
+
 #icon {
   margin-top: 17px;
   font-size: 48px;
@@ -103,6 +112,11 @@ input {
 
 #celcius {
   font-weight: bold;
+}
+
+#celcius-link,
+#farenheit-link {
+  color: #ad9d9d;
 }
 
 #celcius:hover,
