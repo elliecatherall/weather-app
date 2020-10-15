@@ -69,9 +69,22 @@ const conditionsToIcons = {
   tornado: "fa-smog",
 };
 
+function formatHours(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`
+  }
+  
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`
+  }
+  
+  return `${hours}:${minutes}`
+}
+
 let currentIconClass;
-
-
 
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#temp");
@@ -92,8 +105,8 @@ function displayTemperature(response) {
   feelsLikeElement.innerHTML = `${Math.round(response.data.main.feels_like)}°C`;
   dateElement.innerHTML = formatDate(response.data.timezone * 1000);
   timeElement.innerHTML = formatTime(response.data.timezone * 1000);
-  console.log(response);
-  const iconClass =
+
+  let iconClass =
     conditionsToIcons[response.data.weather[0].main.toLowerCase()];
   if (currentIconClass) {
     iconElement.classList.remove(currentIconClass);
@@ -102,10 +115,29 @@ function displayTemperature(response) {
   currentIconClass = iconClass;
 }
 
+
+function displayForecast(response) {
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = null;
+  let forecast = null;
+
+  for (let index = 0; index < 4; index ++) {
+  forecast = response.data.list[index];
+  let forecastIconClass = conditionsToIcons[response.data.list[0].weather[0].main.toLowerCase()];
+  forecastElement.innerHTML += 
+          `<div class="col">
+            <i class="fas ${forecastIconClass}"></i> <br />
+            ${formatHours(forecast.dt * 1000)}
+          </div>`;
+  }
+}
+
 function search(city) {
   let apiKey = "cd1b9c21f5e4554f5edf21cc918b902c";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric`;
   axios.get(`${apiUrl}&appid=${apiKey}`).then(displayTemperature);
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`
+  axios.get(apiUrl).then(displayForecast)
 }
 
 function handleSubmit(event) {
