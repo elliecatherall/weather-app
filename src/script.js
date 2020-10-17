@@ -1,5 +1,8 @@
 function formatDate(timestamp) {
   let date = new Date(timestamp);
+  let dateMilliseconds = Date.parse(date);
+  let utcTimezoneOffset = date.getTimezoneOffset();
+  date = new Date(dateMilliseconds + (utcTimezoneOffset * 60 * 1000));
   let days = [
     "Sunday",
     "Monday",
@@ -41,6 +44,9 @@ function formatDate(timestamp) {
 
 function formatTime(timestamp) {
   let time = new Date(timestamp);
+  let dateMilliseconds = Date.parse(time);
+  let utcTimezoneOffset = time.getTimezoneOffset();
+  time = new Date(dateMilliseconds + (utcTimezoneOffset * 60 * 1000));
   let hours = time.getHours();
   let minutes = ("0" + time.getMinutes()).slice(-2);
   let amPm = document.querySelector("#am-pm");
@@ -103,8 +109,10 @@ function displayTemperature(response) {
   humidityElement.innerHTML = `${response.data.main.humidity}%`;
   windSpeedElement.innerHTML = `${Math.round(response.data.wind.speed)}km/h`;
   feelsLikeElement.innerHTML = `${Math.round(response.data.main.feels_like)}°C`;
-  dateElement.innerHTML = formatDate(response.data.timezone * 1000);
-  timeElement.innerHTML = formatTime(response.data.timezone * 1000);
+  let currentUtcTimestamp = new Date().getTime();
+  let timezoneOffset = response.data.timezone * 1000;
+  dateElement.innerHTML = formatDate(currentUtcTimestamp + timezoneOffset);
+  timeElement.innerHTML = formatTime(currentUtcTimestamp + timezoneOffset);
 
   let iconClass =
     conditionsToIcons[response.data.weather[0].main.toLowerCase()];
@@ -175,9 +183,6 @@ let celciusLink = document.querySelector("#celcius-link");
 celciusLink.addEventListener("click", displayCelciusTemperature);
 
 search("New York");
-
-
-
 
 function displayCurrentLocation(results) {
   let currentLocation = results.data.results[0].address_components[3].long_name;
